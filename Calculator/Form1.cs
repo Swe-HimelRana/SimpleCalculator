@@ -114,7 +114,7 @@ namespace Calculator
             catch
             {
                // MessageBox.Show("Give Valid Input to start Calculation!");
-               // Something heppening here.. May be one fix neede.
+               // Something heppening here.. May be one fix needed.
             }
         }
         // Addition

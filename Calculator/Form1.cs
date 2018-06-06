@@ -24,12 +24,14 @@ namespace Calculator
         // Number Storage
         double numStorage;
         String sign = "";
+        string result;
         
 
         // Clear
         private void btnClear_Click(object sender, EventArgs e)
         {
             resultBox.Clear();
+            
            // this.numStorage = 0.0D;
             this.sign = "";
         }
@@ -121,16 +123,19 @@ namespace Calculator
         private void btnAddition_Click(object sender, EventArgs e)
         {
             validCalculation("+");
+            lblCalculation.Text = this.numStorage.ToString() + " + "; // Showing what's going on
         }
         // Substruction
         private void btnSubstruction_Click(object sender, EventArgs e)
         {
             validCalculation("-");
+            lblCalculation.Text = this.numStorage.ToString() + " - "; // Showing what's going on
         }
         // Multiplication
         private void btnMultiplication_Click(object sender, EventArgs e)
         {
             validCalculation("x");
+            lblCalculation.Text = this.numStorage.ToString() + " x "; // Showing what's going on
 
         }
 
@@ -138,6 +143,7 @@ namespace Calculator
         private void btnDivision_Click(object sender, EventArgs e)
         {
             validCalculation("/");
+            lblCalculation.Text = this.numStorage.ToString() + " / "; // Showing what's going on
         }
 
         // Squire 
@@ -186,21 +192,25 @@ namespace Calculator
                     switch (sign)
                     {
                         case "+":
-                            resultBox.Text = Calculation.addition(firstInput, secondInput).ToString();
-
-                            // this.sign = "";  // I think not to use this is more efficient :p
+                            this.result = Calculation.addition(firstInput, secondInput).ToString();
+                            resultBox.Text = this.result;
+                            lblCalculation.Text = lblCalculation.Text + secondInput.ToString() + " = " + this.result; // Showing what's going on
+                            
                             break;
                         case "-":
-                            resultBox.Text = Calculation.substruction(firstInput, secondInput).ToString();
-                            //this.sign = "";  // I think not to use this is more efficient :p
+                            this.result = Calculation.substruction(firstInput, secondInput).ToString();
+                            resultBox.Text = this.result;
+                            lblCalculation.Text = lblCalculation.Text + secondInput.ToString() + " = " + this.result; // Showing what's going on
                             break;
                         case "x":
-                            resultBox.Text = Calculation.multiplication(firstInput, secondInput).ToString();
-                            //  this.sign = "";  // I think not to use this is more efficient :p
+                            this.result = Calculation.multiplication(firstInput, secondInput).ToString();
+                            resultBox.Text = this.result;
+                            lblCalculation.Text = lblCalculation.Text + secondInput.ToString() + " = " + this.result; // Showing what's going on
                             break;
                         case "/":
-                            resultBox.Text = Calculation.division(firstInput, secondInput).ToString();
-                            // this.sign = "";  // I think not to use this is more efficient :p
+                            this.result = Calculation.division(firstInput, secondInput).ToString();
+                            resultBox.Text = this.result;
+                            lblCalculation.Text = lblCalculation.Text + secondInput.ToString() + " = " + this.result; // Showing what's going on
                             break;
                         default:
                             Console.WriteLine("Default Case. Omm This time no need to do anyting!! :p");
